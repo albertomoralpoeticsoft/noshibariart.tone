@@ -1,0 +1,79 @@
+@use './fonts';
+@use './slider';
+@use './togglebutton';
+@use './triggerbutton';
+@use './xypad';
+
+html,
+body {
+  
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+
+  font-family: "Montserrat";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+#tone {
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#APP {
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2px;
+  background-color: #eeeeee;
+}
+
+.sliders {
+
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+.toggles,
+.triggers {
+
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+.togglebutton,
+.triggerbutton {
+
+  flex: 1;
+  padding: 36px 24px; 
+  font-family: "Montserrat";
+  border: none;
+  cursor: pointer;
+}
+
+.display {
+
+  display: none;
+}

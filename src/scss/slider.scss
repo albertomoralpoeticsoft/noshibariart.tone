@@ -1,0 +1,59 @@
+$thumb: 48px;
+
+input[type="range"]::-webkit-slider-thumb {
+
+  -webkit-appearance: none;
+  appearance: none;
+  width: $thumb;
+  height: 100%;
+  background: #000000;
+  cursor: grab;
+}
+
+input[type="range"]::-moz-range-thumb {
+
+  width: $thumb;
+  height: 100%;
+  background: #000000;
+  cursor: grab;
+}
+
+input[type="range"]::-webkit-slider-thumb:active,
+input[type="range"]::-moz-range-thumb:active {
+
+  cursor: grabbing;
+  background-color: #a57936;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+
+  width: 100%;
+  height: 100%;
+  background: #a57936;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+
+  width: 100%;
+  height: 14px;
+  background: #a57936;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.slider {
+
+  flex: 1;
+}
+
+.slider input {
+
+  width: 100%;
+  height: 100%;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 0;;
+}
