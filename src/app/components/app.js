@@ -1,11 +1,14 @@
 import immutableUpdate from 'immutable-update'
 import React, {
-  useReducer
+  useReducer,
+  useEffect
 } from 'react'
 import Slider from './slider';
 import ToggleButton from './togglebutton';
 import TriggerButton from './triggerbutton';
 import XYPad from './xypad';
+
+import * as Controls from '../tone/main'
 
 export default props => {
 
@@ -20,76 +23,105 @@ export default props => {
       return newState
     },
     {
-      sliderA: 0,
-      sliderB: 0,
+      sliderA: 0.5,
+      sliderB: 0.8,
       toggleA: false,
       toggleB: false,
       triggerA: false,
       triggerB: false,
       xypadX: 50,
       xypadY: 50,
+
+      sounding: false
     }
   )
 
+  const tonestart = () => {
+
+    Controls.startAudio()
+
+    dispatch({
+      sounding: true
+    })
+  }
+
+  useEffect(() => {
+
+    Controls.setInterval(state.sliderA)
+
+    Controls.setVolume(state.sliderB)
+
+  }, [state])
+
   return <div id="APP">
-    <div className="sliders">
-      <Slider
-        index="A"
-        label="Slider A"
-        min={0}
-        max={1}
-        step={0.01}
-        state={ state }
-        dispatch={ dispatch }
-      />
-      <Slider
-        index="B"
-        label="Slider B"
-        min={0}
-        max={1}
-        step={0.01}
+    <div className="controls">
+      <div className="sliders">
+        <Slider
+          index="A"
+          label="Slider A"
+          min={0.5}
+          max={2}
+          step={0.01}
+          state={ state }
+          dispatch={ dispatch }
+        />
+        <Slider
+          index="B"
+          label="Slider B"
+          min={0}
+          max={1}
+          step={0.01}
+          state={ state }
+          dispatch={ dispatch }
+        />
+      </div>
+      <div className="toggles">
+        <ToggleButton
+          index="A"
+          label="Toggle A"
+          state={ state }
+          dispatch={ dispatch }
+        />
+        <ToggleButton
+          index="B"
+          label="Toggle B"
+          state={ state }
+          dispatch={ dispatch }
+        />      
+      </div>
+      <div className="triggers">
+        <TriggerButton
+          index="A"
+          label="Trigger A"
+          state={ state }
+          dispatch={ dispatch }
+        />
+        <TriggerButton
+          index="B"
+          label="Trigger B"
+          state={ state }
+          dispatch={ dispatch }
+        />
+      </div>
+      <XYPad
+        xMin={ 0 } 
+        xMax={ 100 } // Rango de frecuencia amplio
+        yMin={ 0 } 
+        yMax={ 100 }   // Rango típico para Q
         state={ state }
         dispatch={ dispatch }
       />
     </div>
-    <div className="toggles">
-      <ToggleButton
-        index="A"
-        label="Toggle A"
-        state={ state }
-        dispatch={ dispatch }
-      />
-      <ToggleButton
-        index="B"
-        label="Toggle B"
-        state={ state }
-        dispatch={ dispatch }
-      />      
-    </div>
-    <div className="triggers">
-      <TriggerButton
-        index="A"
-        label="Trigger A"
-        state={ state }
-        dispatch={ dispatch }
-      />
-      <TriggerButton
-        index="B"
-        label="Trigger B"
-        state={ state }
-        dispatch={ dispatch }
-      />
-    </div>
-    <XYPad
-      xMin={ 0 } 
-      xMax={ 100 } // Rango de frecuencia amplio
-      yMin={ 0 } 
-      yMax={ 100 }   // Rango típico para Q
-      state={ state }
-      dispatch={ dispatch }
-    />
-    <pre className="display">
-      { JSON.stringify(state, null, 4) }
-    </pre>
+    {
+      !state.sounding &&
+      <div className="start">
+        <div 
+          className="trigger"
+          onClick={ tonestart }
+        >
+          START
+        </div>
+      </div>    
+    }
   </div>
 }

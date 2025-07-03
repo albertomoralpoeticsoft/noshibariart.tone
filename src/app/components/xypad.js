@@ -41,9 +41,6 @@ export default props => {
     const newX = x * (props.xMax - props.xMin) + props.xMin
     const newY = y * (props.yMax - props.yMin) + props.yMin
 
-    console.log(newX)
-    console.log(newY)
-
     props.dispatch({
       [slotX]: newX, 
       [slotY]: newY

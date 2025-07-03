@@ -37,43 +37,72 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2px;
-  background-color: #eeeeee;
-}
 
-.sliders {
+  .controls {
 
-  flex: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2px;
-}
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2px;
+    background-color: #eeeeee;
 
-.toggles,
-.triggers {
+    .sliders {
 
-  display: flex;
-  justify-content: space-between;
-  gap: 2px;
-}
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 2px;
+    }
 
-.togglebutton,
-.triggerbutton {
+    .toggles,
+    .triggers {
 
-  flex: 1;
-  padding: 36px 24px; 
-  font-family: "Montserrat";
-  border: none;
-  cursor: pointer;
-}
+      display: flex;
+      justify-content: space-between;
+      gap: 2px;
+    }
 
-.display {
+    .togglebutton,
+    .triggerbutton {
 
-  display: none;
+      flex: 1;
+      padding: 36px 24px; 
+      font-family: "Montserrat";
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .start {    
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #00000096;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .trigger {
+
+      background-color: #cc0000;
+      width: 100px;
+      height: 100px;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
 }

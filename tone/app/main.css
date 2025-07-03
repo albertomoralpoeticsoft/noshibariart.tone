@@ -121,6 +121,13 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
+}
+#APP .controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding: 30px;
   display: flex;
   flex-direction: column;
@@ -128,8 +135,7 @@ body {
   gap: 2px;
   background-color: #eeeeee;
 }
-
-.sliders {
+#APP .controls .sliders {
   flex: 1;
   position: relative;
   display: flex;
@@ -137,25 +143,40 @@ body {
   justify-content: space-between;
   gap: 2px;
 }
-
-.toggles,
-.triggers {
+#APP .controls .toggles,
+#APP .controls .triggers {
   display: flex;
   justify-content: space-between;
   gap: 2px;
 }
-
-.togglebutton,
-.triggerbutton {
+#APP .controls .togglebutton,
+#APP .controls .triggerbutton {
   flex: 1;
   padding: 36px 24px;
   font-family: "Montserrat";
   border: none;
   cursor: pointer;
 }
-
-.display {
-  display: none;
+#APP .start {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5882352941);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#APP .start .trigger {
+  background-color: #cc0000;
+  width: 100px;
+  height: 100px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map*/
